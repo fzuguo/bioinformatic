@@ -3,6 +3,14 @@ use warnings;
 use strict;
 
 die "perl $0 <gene_loc_info> <GTF> <new_GTF> <prefix>" if @ARGV ne 4;
+######
+# used to get domain locus on chromosome. 
+# <gene_loc_info> transcript_name \t start_acid_locus \t end_acid_locus
+# <GTF> original gtf 
+# <new_GTF> outputfile contain Domain locus info
+# <prefix> user defined  domain name 
+######
+
 
 #get CDS loc info & direction info from gtf file
 my %CDS_loc;
