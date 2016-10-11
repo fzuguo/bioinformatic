@@ -16,6 +16,7 @@ use Bio::Seq;
 die "perl $0 <fa>\nused to filter fa file N rate>80%" unless(@ARGV eq 1);
 
 my $in = Bio::SeqIO->new(-file=>"< $ARGV[0]", -format=>"fasta");
+open  FLIST,">./filter.list" or die "failed to write out filter list";
 while (my $seq = $in->next_seq()){
 	my $sequence = $seq->seq;
 	my $seq_id = $seq->id;
@@ -23,12 +24,15 @@ while (my $seq = $in->next_seq()){
 	my @array = split(//,$sequence);
 	my $n = 0;
 	foreach my $values(@array){
-		if($values eq "N"){
+		if($values eq "N" || $values eq "n"){
 			$n++;
 		}
 	}
 	if($n/$seq_length < 0.8){
 		print ">".$seq_id."\n".$sequence."\n";
+	}else{
+		print FLIST $seq_id."\n";
 	}
 }
+
 
