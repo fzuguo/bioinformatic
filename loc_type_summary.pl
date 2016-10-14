@@ -1,7 +1,12 @@
 #!/usr/bin/perl
 use warnings;
 use strict;
+#
+#this perl script is used for summary reads biotype from align-bam files 
+#need file: GTF with biotype messages,reads_align bam file;
+#
 die "perl $0 <GTF_gene_info> <accept_bam> <RUN_log> > result.txt" if @ARGV ne 3;
+
 my %gene_loc_hash;
 open GTF,$ARGV[0] or die "failed to open GTF file";
 while(<GTF>){
