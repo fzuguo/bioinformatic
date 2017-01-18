@@ -50,7 +50,7 @@ while(<FILE2>){
 		if($hash_reads1{$line1} == 1){
 			print OUT2 $line1."\/2\n".$line2.$line3.$line4;
 			$exist_reads{$line1} = 1;
-			$hash_reads1{$line1} = 1;
+			$hash_reads1{$line1} = 0;
 			$r2dn++
 		}else{
 			$r2dupn++
