@@ -16,7 +16,6 @@ my $pwd = dirname(__FILE__);
 #use File::Spec::Functions qw/rel2abs/;
 #use FindBin qw/$Bin $Script/;
 #use lib $Bin;
-#Author: jhguo@genedenovo.com
 die "perl $0 <input.order.bam> <output.multialing.bam>\n" unless(@ARGV eq 2);
 open FILE,"samtools view -h $ARGV[0]|" or die "failed to open file1";
 open OFILE,"|samtools view -Sb - > $ARGV[1]" or die "failed to wirte bam";
